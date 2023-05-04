@@ -1,0 +1,57 @@
+[user]
+	email = jonathan.nicio@banregio.com
+	name = Jonathan Nicio
+	signingKey = ""
+[core]
+	longpaths = true
+	editor = \"C:\\Users\\BRM11118\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe\" --wait
+[http]
+	sslVerify = false
+[credential]
+	helper = wincred
+[alias]
+	lg = log --oneline --decorate --all --graph
+	s = status -s -b
+	shortlog = -sn
+	cdev = checkout develop
+	c = checkout
+	cm = commit -m
+	rank = shortlog -sn --no-merges
+	gl = config --global -l
+	dir = git gl cd /c/Users/BRM00000/Documents/Repos/
+	undo = reset HEAD~1 --mixed
+	lgd = "log --graph --pretty=format:'%C(#fbbf0d)%h%C(#3bbb3b) -> %Creset %s %C(#19bfae) (%al)%C(#4949db) <%ar>  %C(#ee532c) %d'"
+	last = "log --graph -5 HEAD --pretty=format:'%C(#fbbf0d)%h%C(#3bbb3b) -> %C(#ee532c) %d %C(#19bfae) (%al)%C(#4949db) <%ar> %n %Creset %s'"
+	bajar = pull
+	subir = push
+	ci = commit -m
+	cret = checkout -
+	upd = merge origin/develop
+	us = reset HEAD --
+	diffdev = diff origin/develop --stat
+	amend = !git add -A && git commit -a --amend --no-edit
+	fmerge = "!f() { \
+				git cdev && git pull && git cret && git merge develop; \
+			}; f"
+	currentbr = "!f() { git branch | grep \\* | cut -d \" \" -f2; }; f"
+	lgdlocal = lgd origin/develop..HEAD
+	lglocal = log origin/develop..HEAD
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[color]
+	ui = auto
+[color "diff"]
+	old = "#fc7c7c"
+	new = "#7cfca9"
+	meta = "#c2ebff"
+[color "status"]
+	localBranch = bold green
+	remoteBranch = bold red
+	changed = bold red
+	untracked = bold blue
+	unmerged = bold magenta
+	header = "#5f00ff"
